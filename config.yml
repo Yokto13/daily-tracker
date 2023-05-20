@@ -1,0 +1,3 @@
+--- ThingsToTrack
+  {name: Neck pain, type: likert}
+  {name: Sleep length (hrs), type: int}
