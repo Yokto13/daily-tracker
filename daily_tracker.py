@@ -4,7 +4,7 @@ from datetime import date
 import sys
 import yaml
 
-PREFIX = "/home/arklez/codes/Git/daily-tracker/"
+PREFIX = "/home/arklez/Documents/daily_tracker_results/"
 
 CSV_PATH = PREFIX + "myresults.csv"
 QUESTIONS_PATH = PREFIX + "myconfig.yml"
@@ -83,14 +83,14 @@ this_day = {'timestamp':today}
 for qst_pair in questions:
     ans = None
     if qst_pair["type"] == 'likert':
-        ans = ask_likert(qst_pair["question"])
+        ans = ask_likert(qst_pair["name"])
     if qst_pair["type"] == 'int':
-        ans = ask_int(qst_pair["question"])
+        ans = ask_int(qst_pair["name"])
     if qst_pair["type"] == 'prc':
-        ans = ask_prc(qst_pair["question"])
+        ans = ask_prc(qst_pair["name"])
     if qst_pair["type"] == 'float':
-        ans = ask_float(qst_pair["question"])
-    this_day[qst_pair["question"]] = ans
+        ans = ask_float(qst_pair["name"])
+    this_day[qst_pair["name"]] = ans
 
 with open(CSV_PATH, 'w') as csvfile:
     fields = set(this_day.keys())
